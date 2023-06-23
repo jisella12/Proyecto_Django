@@ -19,3 +19,6 @@ def productos(request):
 
 def Registro(request):
     return render(request, 'tienda/Registro.html')
+
+def contacto(request):
+    return render(request, 'tienda/contacto.html')
