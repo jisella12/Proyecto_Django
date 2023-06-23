@@ -16,3 +16,6 @@ def Login(request):
 
 def productos(request):
     return render(request, 'tienda/productos.html')
+
+def Registro(request):
+    return render(request, 'tienda/Registro.html')
