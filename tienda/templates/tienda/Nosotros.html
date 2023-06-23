@@ -1,0 +1,285 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/styles.css'%}">
+    <link rel="stylesheet" href="{% static 'css/nav.css'%}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <style>
+        #map {
+          height: 50%;
+        }
+        html, body {
+          height: 100%;
+          margin: 0;
+          padding: 0;
+        }
+      </style>
+    <title>Nosotros</title>
+</head>
+<body>
+    <header>
+        <div class="container-hero" >
+            <div class="container hero">
+                <div class="customer-support">
+                    <i class="fa-solid fa-headset"></i>
+                    <div class="content-customer-support">
+                        <span class="text">Soporte al cliente</span>
+                        <span class="number">123-456-7890</span>
+                    </div>
+                </div>
+
+                <div class="container-logo">
+                    <i class="books"></i>
+                    <h1 class="logo"><a href="Inicio.html" > <img src="{% static 'images/LOGO (4).svg'%}" alt="" width="80" height="80"> </a></h1>
+                </div>
+
+                <div class="container-user">
+                    <i class="fa-solid fa-user"></i>
+                    <i class="fa-solid fa-basket-shopping"></i>
+                    <div class="content-shopping-cart">
+                        <span class="link-carrito"> <a href="carro.html">Carrito </a> </span>
+                        <span class="number">(0)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+        <!-- fin del header -->
+
+
+        <!--aqui comienza el nav-->
+        <section class="nav-total">
+        <ul class="nav nav-tabs" style="justify-content:center;">
+            <li class="nav-item">
+            <a class="nav-link"  style="color: black;"  aria-current="page" href="Inicio.html">Inicio</a>
+            </li>
+            
+            
+            <li class="nav-item">
+            <a class="nav-link" style="color: black;" href="Nosotros.html">Nosotros</a>
+            </li>
+          
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" style="color: black;" data-bs-toggle="dropdown" href="productos.html" role="button" aria-expanded="true">Productos</a>
+                <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="productos.html">Romance</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="fantasia.html">Fantasía</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="RomanceClasico.html">Romance Clasico</a></li>
+                
+                </ul>
+            </li>
+            
+        </ul>
+        </section>
+        
+        
+    <section class="container blogs" style="text-align: center;">
+        <h1 style="text-align: center;" class="heading-1" ></h1>
+
+        <div class="container-blogs" style="place-items: center;">
+            <div class="card-blog">
+                <div class="container-img">
+                    <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/libreria-mas-bonita-madrid-bardon-1636030085.jpg?crop=0.6648264984227129xw:1xh;center,top&resize=640:*" alt="Imagen Blog 3" />
+                    <div class="button-group-blog">
+                        <span>
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </span>
+                        <span>
+                            <i class="fa-solid fa-link"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="content-blog">
+                    <h3>Libreria J&C Books</h3>
+                    <h3>Buscanos en</h3>
+                    <span>10 Mayo 2023</span>
+                    <p>
+                        Somos un pequeña sucursal apasionados por el mundo de la lectura, aca podras encontrar diferentes libros que desees.
+                    </p>
+                    <div class="btn-read-more">Buscanos en</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <hr>
+    
+    <section class="container container-features">
+        
+        <div class="card-feature">
+            <i class="fa-solid fa-plane-up"></i>
+            <div class="feature-content">
+                <span>Envío gratuito a nivel mundial</span>
+                <p>En pedido superior a $150</p>
+            </div>
+        </div>
+        <div class="card-feature">
+            <i class="fa-solid fa-wallet"></i>
+            <div class="feature-content">
+                <span>Contrareembolso</span>
+                <p>100% garantía de devolución de dinero</p>
+            </div>
+        </div>
+        <div class="card-feature">
+            <i class="fa-solid fa-gift"></i>
+            <div class="feature-content">
+                <span>Tarjeta regalo especial</span>
+                <p>Ofrece bonos especiales con regalo</p>
+            </div>
+        </div>
+        <div class="card-feature">
+            <i class="fa-solid fa-headset"></i>
+            <div class="feature-content">
+                <span>Servicio al cliente 24/7</span>
+                <p>LLámenos 24/7 al 123-456-7890</p>
+            </div>
+        </div>
+    </section>
+    <h2 style="text-align: center;">Nos ubicamos en </h2>
+
+
+    <hr>
+    
+    <!-- API mapa nuevo -->
+    <div id="map">
+
+    </div>
+    <script async
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrxFNkG3I9OVpNPXFfDRKiZSht52WygFA&callback=initMap">
+  </script>
+  <script>
+    const chlCords = { lat: -33.031187, lng: -71.530694 };
+    const mapDiv = document.getElementById("map");
+    let map;
+    let marker;
+    function initMap(){
+      map = new google.maps.Map(mapDiv, {
+      center: chlCords,
+      zoom: 8,
+    });
+      marker = new google.maps.Marker({
+        position: chlCords,
+        map: map,
+      });
+    }
+  </script>
+
+
+    <footer class="footer">
+        <div class="container container-footer">
+            <div class="menu-footer">
+                <div class="contact-info">
+                    <p class="title-footer">Información de Contacto</p>
+                    <ul>
+                        <li>
+                            Dirección: 222 Viña del Mar, Chile 
+                        </li>
+                        <li>Teléfono: 33 747474</li>
+                        <li>Celular: 55555300</li>
+                        <li>EmaiL: Librosj&@gmail.com</li>
+                    </ul>
+                    <div class="social-icons">
+                        <span class="facebook">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </span>
+                        <span class="twitter">
+                            <i class="fa-brands fa-twitter"></i>
+                        </span>
+                        <span class="youtube">
+                            <i class="fa-brands fa-youtube"></i>
+                        </span>
+                        <span class="pinterest">
+                            <i class="fa-brands fa-pinterest-p"></i>
+                        </span>
+                        <span class="instagram">
+                            <i class="fa-brands fa-instagram"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="information">
+                    <p class="title-footer">Información</p>
+                    <ul>
+                        <li><a href="#">Acerca de Nosotros</a></li>
+                        <li><a href="#">Información Delivery</a></li>
+                        <li><a href="#">Politicas de Privacidad</a></li>
+                        <li><a href="#">Términos y condiciones</a></li>
+                        <li><a href="#">Contactános</a></li>
+                    </ul>
+                </div>
+
+                <div class="my-account">
+                    <p class="title-footer">Mi cuenta</p>
+
+                    <ul>
+                        <li><a href="#">Mi cuenta</a></li>
+                        <li><a href="#">Historial de ordenes</a></li>
+                        <li><a href="#">Lista de deseos</a></li>
+                        <li><a href="#">Boletín</a></li>
+                        <li><a href="#">Reembolsos</a></li>
+                    </ul>
+                </div>
+
+                <div class="newsletter">
+                    <p class="title-footer">Boletín informativo</p>
+
+                    <div class="content">
+                        <p>
+                            Suscríbete a nuestros boletines ahora y mantente al
+                            día con nuevas colecciones y ofertas exclusivas.
+                        </p>
+                        <input type="email" placeholder="Ingresa el correo aquí...">
+                        <button>Registrate</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>
+                    Desarrollado J&C &copy; 2023
+                </p>
+
+                <img src="{% static 'images/payment.png'%}" alt="Pagos"> 
+            </div>
+        </div>
+    </footer>
+    <button class="btn-scrolltop" id="btn_scrolltop">
+        <i class="fas fa-chevron-up"></i>
+      </button>
+      <script>
+        const btn_scrolltop = document.getElementById("btn_scrolltop")
+          btn_scrolltop.addEventListener('click', () => {
+            window.scrollTo(0, 0)
+          })
+    
+        window.onscroll = () => {
+          add_btn_scrolltop()
+        }
+    
+        const add_btn_scrolltop = () => {
+          if (window.scrollY < 300) {
+            btn_scrolltop.classList.remove("btn-scrolltop-on")
+          } else {
+            btn_scrolltop.classList.add("btn-scrolltop-on")
+          }
+        }
+      </script>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+    <script
+        src="https://kit.fontawesome.com/81581fb069.js"
+        crossorigin="anonymous"
+    ></script>
+</body>
+</html>

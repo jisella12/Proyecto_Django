@@ -1,0 +1,49 @@
+main {
+	display: flex;
+	justify-content: center;
+    align-items: center;
+	background-image: linear-gradient(100deg, #adadad, #645c5c20),
+	url('https://static.mujerhoy.com/www/multimedia/201804/23/media/cortadas/carturesticarusel-bucarest-rumania-kmEF--1978x900@MujerHoy.jpg');
+    height: 50rem;
+}
+
+main .contenedor-img {
+	max-width: 60%;
+	margin-right: 40px;
+	filter: brightness(1.1);
+	mix-blend-mode: multiply;
+}
+
+.contenedor-texto .titulo {
+     font-size: 50px;
+     font-weight: normal;
+     margin-bottom: 40px;
+}
+
+.contenedor-texto .Libros {
+     font-weight: bold;
+     color: #c08f5f;
+     font-style: normal;
+}
+
+.contenedor-texto p {
+     margin-bottom: 40px;
+     line-height: 36px;
+}
+
+.btn-link {
+     display: inline-block;
+     padding: 10px 30px;
+	border-radius: 100px;
+     margin-right: 10px;
+     text-decoration: none;
+     background: #f2f2f2;
+}
+
+.btn-link:hover,
+.btn-link.activo {
+	color: #fff;
+	background: #bd9b78;
+}
+
+

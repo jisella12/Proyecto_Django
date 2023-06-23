@@ -1,0 +1,28 @@
+
+.nav-link{
+    font-size: x-large;
+
+    color: black;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    cursor: pointer;
+
+    
+}
+
+.nav-item:hover{
+    /* font-size: large;
+    font-style: oblique;  */
+    color: black;
+    
+    
+}
+
+.nav-total{
+    background: -webkit-linear-gradient(left, #FFE4E1, #c7a17a, #c7a17a, #FFE4E1);
+    color: black;
+}
+
+.dropdown-menu{
+    background: -webkit-linear-gradient(left, #c7a17a, #FFE4E1, #FDF5E6, #c7a17a);
+}
+

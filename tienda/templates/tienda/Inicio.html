@@ -1,0 +1,368 @@
+
+
+{%extends 'tienda/base.html'%}
+
+{% block contenido1 %}
+
+{% load static %}
+<body>
+		
+	<!-- NUEVA FUNCION  -->
+	<main>
+		<div class="contenedor-img">
+			 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJWcTBTI49glVmEILZkcMrY0rTgkd-BgdMSw&usqp=CAU" alt="">
+		</div>
+		<div class="contenedor-texto">
+			 <!-- Forma #1 -->
+			 <h2 class="titulo">Descubre tus diferentes gustos <br> en <span class="typed"></span></h2>
+			 <div class="botones">
+				<a href="Registro.html" class="btn-link activo">Registrate</a>
+				<a href="rglo.html" class="btn-link">Contacto</a>
+
+			 </div>
+			 
+		</div>
+   </main>
+	<section class="container container-features">
+		<div class="card-feature">
+			<i class="fa-solid fa-plane-up"></i>
+			<div class="feature-content">
+				<span>Envío gratuito a nivel mundial</span>
+				<p>En pedido superior a $100.000</p>
+			</div>
+		</div>
+		<div class="card-feature">
+			<i class="fa-solid fa-wallet"></i>
+			<div class="feature-content">
+				<span>Contrareembolso</span>
+				<p>100% garantía de devolución de dinero</p>
+			</div>
+		</div>
+		<div class="card-feature">
+			<i class="fa-solid fa-gift"></i>
+			<div class="feature-content">
+				<span>Tarjeta regalo especial</span>
+				<p>Ofrece bonos especiales con regalo</p>
+			</div>
+		</div>
+		<div class="card-feature">
+			<i class="fa-solid fa-headset"></i>
+			<div class="feature-content">
+				<span>Servicio al cliente 24/7</span>
+				<p>LLámenos 24/7 al 123-456-7890</p>
+			</div>
+		</div>
+	</section>
+	<!-- tarjetas -->
+	
+		<div class="container-card">
+			
+			<div class="card">
+				<figure>
+					<img src="{% static 'images/romance.jfif'%}">
+				</figure>
+				<div class="contenido-card">
+					<h3>Romance</h3>
+					<p>Conservar algo que me ayude a recordarte sería admitir que te puedo olvidar. 'Romeo y Julieta', de William Shakespeare.</p>
+					<a href="productos.html">Leer Màs</a>
+				</div>
+			</div>
+
+			<div class="card">
+				<figure>
+					<img src="{% static 'images/fantasia.jfif'%}">
+				</figure>
+				<div class="contenido-card">
+					<h3>Fantasia</h3>
+					<p>¿Cómo retomas el hilo de una vida vieja? ¿Cómo continúas, cuando en tu corazón empiezas a entender que no hay regreso posible? (El señor de los anillos, de J.R.R. Tolkien).</p>
+					<a href="productos.html">Leer Màs</a>
+				</div>
+			</div>
+
+			<div class="card">
+				<figure>
+					<img src="{% static 'images/literatura.jfif'%}">
+				</figure>
+				<div class="contenido-card">
+					<h3>Romance Clasicos</h3>
+					<p>Aún entre los demonios hay unos peores que otros, y entre muchos malos hombres suele haber alguno bueno. (Don Quijote de la Mancha, de Cervantes)</p>
+					
+					<a href="productos.html">Leer Màs</a>
+				</div>
+			</div>
+		</div>
+<!--Fin   Tarjetas-->
+
+	<section class="gallery">
+		<img
+			src="{% static 'images/1d.jfif'%}"
+			alt="Gallery Img1"
+			class="gallery-img-1"
+		/><img
+			src="{% static 'images/2d.png'%}"
+			alt="Gallery Img2"
+			class="gallery-img-2"
+		/><img
+			src="{% static 'images/cd.jfif'%}"
+			alt="Gallery Img3"
+			class="gallery-img-3"
+		/><img
+			src="{% static 'images/4d.jfif'%}"
+			alt="Gallery Img4"
+			class="gallery-img-4"
+		/><img
+			src="{% static 'images/cd2.jfif'%}"
+			alt="Gallery Img5"
+			class="gallery-img-5"
+		/>
+	</section>
+	<!-- Productos LIBROS -->
+	
+<div class="produ">
+<div class="card" style="width: 23rem;">
+	<img src="{% static 'images/p1.jfif'%}" alt="">
+	<div class="card-body">
+	  <h5 class="card-title">Antes de diciembre</h5>
+	  
+	  <p class="price">$12.285 <span>$15.520</span></p>
+
+	  <a href="#" class="btn-btn-primary">Comprar</a>
+	</div>
+</div>
+
+<div class="card" style="width: 23rem;">
+	<img src="{% static 'images/p2.jfif'%}" alt="">
+	<div class="card-body">
+	  <h5 class="card-title">The Cruel Prince</h5>
+	  <p class="price">$12.285 <span>$15.520</span></p>
+
+	  <a href="#" class="btn-btn-primary">Comprar</a>
+	</div>
+</div>
+
+<div class="card" style="width: 23rem;">
+	<img src="{% static 'images/p3.jfif'%}" alt="">
+	<div class="card-body">
+	  <h5 class="card-title">Rojo Blanco y Sangre Azul</h5>
+	  <p class="price">$12.285 <span>$15.520</span></p>
+  
+	  <a href="#" class="btn-btn-primary">Comprar</a>
+	</div>
+</div>
+
+<div class="card" style="width: 23rem;">
+	<img src="{% static 'images/p4.jfif'%}" alt="">
+	<div class="card-body">
+	  <h5 class="card-title">Dos metros de ti</h5>
+	  <p class="price">$12.285 <span>$15.520</span></p>
+
+	  <a href="#" class="btn-btn-primary">Comprar</a>
+	</div>
+</div>
+
+<div class="card" style="width: 23rem;">
+	<img src="{% static 'images/p5.jfif'%}" alt="">
+	<div class="card-body">
+	  <h5 class="card-title">Las ventajas de ser invisible</h5>
+	  <p class="price">$12.285 <span>$15.520</span></p>
+	  
+	  <a href="#" class="btn-btn-primary">Comprar</a>
+	</div>
+</div>
+
+<div class="card" style="width: 23rem;">
+	<img src="{% static 'images/po10.jfif'%}" alt="">
+	<div class="card-body">
+	  <h5 class="card-title">Ciudades de Ceniza</h5>
+	  <p class="price">$12.285 <span>$15.520</span></p>
+	  
+	  <a href="#" class="btn-btn-primary">Comprar</a>
+	</div>
+</div>
+
+<div class="card" style="width: 23rem;">
+	<img src="{% static 'images/po11.jfif'%}" alt="">
+	<div class="card-body">
+	  <h5 class="card-title">El dia que dejo de nevar en alaska</h5>
+	  <p class="price">$12.285 <span>$15.520</span></p>
+	  
+	  <a href="#" class="btn-btn-primary">Comprar</a>
+	</div>
+</div>
+
+<div class="card" style="width: 23rem;">
+	<img src="{% static 'images/po12.jfif'%}" alt="">
+	<div class="card-body">
+	  <h5 class="card-title">Hasta que nos quedemos in estrellas</h5>
+	  <p class="price">$12.285 <span>$15.520</span></p>
+	  
+	  <a href="#" class="btn-btn-primary">Comprar</a>
+	</div>
+</div>
+
+<div class="card" style="width: 23rem;">
+	<img src="{% static 'images/po16.jfif'%}" alt="">
+	<div class="card-body">
+	  <h5 class="card-title">Love Theoretically</h5>
+	  <p class="price">$12.285 <span>$15.520</span></p>
+	  
+	  <a href="#" class="btn-btn-primary">Comprar</a>
+	</div>
+</div>
+
+<div class="card" style="width: 23rem;">
+	<img src="{% static 'images/po17.jfif'%}" alt="">
+	<div class="card-body">
+	  <h5 class="card-title">Ciudades de Fuego</h5>
+	  <p class="price">$13.825 <span>$15.500</span></p>
+	 
+	  <a href="#" class="btn-btn-primary">Comprar</a>
+	</div>
+</div>
+
+<div class="card" style="width: 23rem;">
+	<img src="{% static 'images/po1.jfif'%}" alt="">
+	<div class="card-body">
+	  <h5 class="card-title">La hipotesis del amor</h5>
+	  <p class="price">$17.000 <span>22.500</span></p>
+	  
+	  <a href="#" class="btn-btn-primary">Comprar</a>
+	</div>
+</div>
+
+<div class="card" style="width: 23rem;">
+	<img src="{% static 'images/po18.jfif'%}" alt="">
+	<div class="card-body">
+	  <h5 class="card-title">Asesino de brujas</h5>
+	  <p class="price">$12.000 <span>$18.000</span></p>
+	  
+	  <a href="#" class="btn-btn-primary">Comprar</a>
+	</div>
+</div>
+
+<div class="card" style="width: 23rem;">
+	<img src="{% static 'images/po19.png'%}" alt="">
+	<div class="card-body">
+	  <h5 class="card-title">Aristoteles y dante</h5>
+	  <p class="price">$12.000 <span>$18.000</span></p>
+	  
+	  <a href="#" class="btn-btn-primary">Comprar</a>
+	</div>
+</div>
+
+<div class="card" style="width: 23rem;">
+	<img src="{% static 'images/po20.jfif'%}" alt="">
+	<div class="card-body">
+	  <h5 class="card-title">Una corte de rosas y espinas</h5>
+	  <p class="price">$23.850 <span>$35.500</span></p>
+	  
+	  <a href="#" class="btn-btn-primary">Comprar</a>
+	</div>
+</div>
+
+<div class="card" style="width: 23rem;">
+	<img src="{% static 'images/po21.jfif'%}" alt="">
+	<div class="card-body">
+	  <h5 class="card-title">Un reino de carne y fuego</h5>
+	  <p class="price">$13.815 <span>$15.530</span></p>
+	  
+	  <a href="#" class="btn-btn-primary">Comprar</a> 
+	</div>
+</div>
+
+<div class="card" style="width: 23rem;">
+	<img src="{% static 'images/bu3.jpg'%}" alt="">
+	<div class="card-body">
+	  <h5 class="card-title">Sombra y Hueso</h5>
+	  <p class="price">$5.640</p>
+	  
+	  <a href="#"  class="btn-btn-primary">Comprar</a>
+	</div>
+</div>
+</div>
+<footer class="footer">
+	<div class="container container-footer">
+		<div class="menu-footer">
+			<div class="contact-info">
+				<p class="title-footer">Información de Contacto</p>
+				<ul>
+					<li>
+						Dirección: 222 Viña del Mar, Chile 
+					</li>
+					<li>Teléfono: 33 747474</li>
+					<li>Celular: 55555300</li>
+					<li>EmaiL: Librosj&@gmail.com</li>
+				</ul>
+				<div class="social-icons">
+					<span class="facebook">
+						<i class="fa-brands fa-facebook-f"></i>
+					</span>
+					<span class="twitter">
+						<i class="fa-brands fa-twitter"></i>
+					</span>
+					<span class="youtube">
+						<i class="fa-brands fa-youtube"></i>
+					</span>
+					<span class="pinterest">
+						<i class="fa-brands fa-pinterest-p"></i>
+					</span>
+					<span class="instagram">
+						<i class="fa-brands fa-instagram"></i>
+					</span>
+				</div>
+			</div>
+
+			<div class="information">
+				<p class="title-footer">Información</p>
+				<ul>
+					<li><a href="#">Acerca de Nosotros</a></li>
+					<li><a href="#">Información Delivery</a></li>
+					<li><a href="#">Politicas de Privacidad</a></li>
+					<li><a href="#">Términos y condiciones</a></li>
+					<li><a href="#">Contactános</a></li>
+				</ul>
+			</div>
+
+			<div class="my-account">
+				<p class="title-footer">Mi cuenta</p>
+
+				<ul>
+					<li><a href="#">Mi cuenta</a></li>
+					<li><a href="#">Historial de ordenes</a></li>
+					<li><a href="#">Lista de deseos</a></li>
+					<li><a href="#">Boletín</a></li>
+					<li><a href="#">Reembolsos</a></li>
+				</ul>
+			</div>
+
+			<div class="newsletter">
+				<p class="title-footer">Boletín informativo</p>
+
+				<div class="content">
+					<p>
+						Suscríbete a nuestros boletines ahora y mantente al
+						día con nuevas colecciones y ofertas exclusivas.
+					</p>
+					<input type="email" placeholder="Ingresa el correo aquí...">
+					<button>Registrate</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="copyright">
+			<p>
+				Desarrollado J&C &copy; 2023
+			</p>
+
+			<img src="{% static 'images/payment.png'%}" alt="Pagos"> 
+		</div>
+
+	</div>
+
+
+{% endblock %}
+
+
+	
+
+
