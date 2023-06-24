@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="css/rglo.css">
+   <title>Contacto</title>
+</head>
+<body>
+      <form action="" id="formulario_contacto" class="contenido">
+         <div class="container-logo" style="text-align: center;">
+            <i class="books"></i>
+            <h1 class="logo"><a href="Inicio.html" > <img src="images/LOGO (4).svg" alt="" width="80" height="80"> </a></h1>
+        </div>
+        <h2>Contacto</h2>
+        
+         <div class="datos">
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre" id="nombre">
+            <br>
+            <label for="email">Correo Electronico</label>
+            <input type="email" name="email" id="email">
+            <br>
+            <label for="tipo_solicitud">Tipo Solicitud</label>
+            <select name="tipo_solicitud" id="tipo_solicitud">
+               <option value="">Seleccionar</option>
+               <option value="sugerencia">Sugerencia</option>
+               <option value="Reclamo">Reclamo</option>
+               <option value="Consulta">Consulta</option>
+            </select>
+            <br>
+            <label for="mensaje"></label>
+            <textarea name="mensaje" id="mensaje" cols="30" rows="10"></textarea>
+            <input type="checkbox" name="avisos" id="avisos">
+            <label for="avisos">Desea recibir avisos / sugerencias?</label>
+            <br>
+            <input type="reset" value="Limpiar" id="limpiar">
+            <button type="button" id="guardar">Guardar</button>
+         </div>
+      </form>
+   
+   <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+   <script src="js/formulario_jquery.js"></script>
+   <script src="js/traducciones.js"></script>
+  
+
+   
+</body>
+</html>

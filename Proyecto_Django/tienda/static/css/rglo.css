@@ -1,0 +1,89 @@
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR183CgSZZBayJpGAp7CKJa86W_uJazwGbRTA&usqp=CAU);
+  background-attachment: fixed;
+  
+
+}
+form {
+  padding: 50px 55px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  text-align: center;
+  width: 340px;
+  background: #fcfcfc;
+
+}
+.datos{
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+h2{
+  color: #283629;
+  font-size: 35px;
+}
+label{
+  color: #283629;
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 15px;
+
+}
+input, textarea{
+  padding: 17px 25px;
+  border-radius: 25px;
+  margin-bottom: 20px;
+  background-color: #fffbf4;
+  border: 2px solid #271900;
+  color: #010101;
+  outline: none;
+  cursor: pointer;
+
+}
+input::placeholder, textarea::placeholder {
+  color: fcfcfc;
+} 
+.form-txt{
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+
+}
+.form-txt a{
+  color: black;
+}
+#guardar, #limpiar{
+  padding: 17px 25px;
+  border-radius: 25px;
+  margin-bottom: 20px;
+  border: 2px solid #271900;
+  background-color: #fffbf4;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+label.error {
+  color: darkred;
+}
+input.error{
+  border: 1px solid darkred;
+}
+@media(max-width:991px){
+  body{
+    padding: 30px;
+
+  }
+  #formulario_contacto{
+    padding: 50px 30px;
+    width: 100%;
+  }
+  input{
+    padding: 15px 10px;
+  }
+}

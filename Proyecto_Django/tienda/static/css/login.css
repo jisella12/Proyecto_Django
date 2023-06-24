@@ -1,0 +1,100 @@
+/* fondo base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1{
+    
+    margin-top: 0.99%;
+    margin-bottom: 0.99%;
+    padding-left: 37%;
+    font-family: cursive;
+    }
+
+    body {
+            background: -webkit-linear-gradient(left,#e4ded9,#FDF5E6, #FFE4E1, #ddc2ae);;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        main {
+            background: #fff;
+            width: 100%;
+            max-width: 405px;
+            margin: 30px auto;
+            padding:  40px;
+            border-radius: 5px;
+            box-shadow: 0px 15px 20px rgba(0,0,0,5);
+        }
+       
+        .formulario{
+            display: grid;
+            grid-template-columns: 1fr ;
+            gap: 45px;
+        }
+        
+        .formulario__label {
+            display: block;
+            padding: 10px 0;
+        }
+        
+        .formulario__grupo-input {
+            position: relative;
+        }
+        
+        .formulario__input {
+            width: 100%;
+            background: #ffffff;
+            /* border-bottom: 2px solid #ddc2ae; */
+           /*  color: black; */
+            border-radius: 10px;
+            font-size: 20px;
+            outline: none;
+            line-height: 45px;
+            padding: 0 10px;
+            transition: all 1s;
+        }
+
+        .formulario__input:focus {
+            box-shadow: 0 0 5px black;
+        }
+
+        .formulario__span {
+            font-size: 1.1em;
+            font-weight: 100;
+        }
+
+        .formulario__grupo-terminos, .formulario__mensaje, .formulario__grupo-btn-enviar {
+            grid-column: span 2;
+        }
+
+        .formulario__grupo-btn-enviar {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+
+        .formulario__btn {
+            height: 10px;
+            padding: 15px 35px;
+            background: #c7a17a;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            border: 2px solid lightcoral;
+            
+        }
+
+        .formulario__btn:hover {
+            background: bei;
+            transition: 1s;
+        }
+
+    dialog{
+        background: lightpink;
+        border-color: bisque;
+    }
