@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import ContactoForm, LibroForm
 from .models import Libro
 # Create your views here.
@@ -44,6 +44,9 @@ def RomanceClasico(request):
 
 
 """ agregar, modificar, listar """
+
+""" agregar """
+
 def AgregarLibro(request):
     data = {
         'form': LibroForm()
@@ -58,6 +61,8 @@ def AgregarLibro(request):
 
     return render(request, 'tienda/Libros/agregar.html',data)
 
+""" Listar """
+
 def libroList(request):
     libros = Libro.objects.all()
     contexto={
@@ -65,3 +70,24 @@ def libroList(request):
     }
     return render(request, 'tienda/Libros/listar.html',contexto)
 
+""" Modificar """
+def modificarLibro(request, id):
+
+    libro = get_object_or_404(Libro, id=id)
+    data = {
+        'form': LibroForm(instance=libro)
+    }
+    if request.method == 'POST':
+        formulario = LibroForm(data=request.POST, instance=libro, files=request.FILES)
+        if formulario.is_valid():
+            formulario.save()
+            return redirect(to="libroList")
+        else:
+            data ["form"] = formulario
+    return render(request, 'tienda/Libros/modificar.html',data)
+
+""" Eliminar """
+def eliminarLibro(request, id):
+    libro = get_object_or_404(Libro, id=id)
+    libro.delete()
+    return redirect(to="libroList")
