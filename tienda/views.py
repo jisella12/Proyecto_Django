@@ -36,6 +36,12 @@ def productos(request):
 
 def Registro(request):
     return render(request, 'tienda/Registro.html')
+def fantasia(request):
+    return render(request, 'tienda/fantasia.html')
+
+def RomanceClasico(request):
+    return render(request, 'tienda/RomanceClasico.html')
+
 
 """ agregar, modificar, listar """
 def AgregarLibro(request):
@@ -52,9 +58,10 @@ def AgregarLibro(request):
 
     return render(request, 'tienda/Libros/agregar.html',data)
 
-def listar_libro(request):
+def libroList(request):
     libros = Libro.objects.all()
-    data = {
-        'libros': libros
+    contexto={
+        'libros':libros
     }
-    return render(request, 'tienda/Libros/listar.html', data)
+    return render(request, 'tienda/Libros/listar.html',contexto)
+

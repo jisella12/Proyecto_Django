@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 :root {
-	--primary-color: #c7a17a;
+	--primary-color: #e2c8af;
 	--background-color: #FDF5E6;
 	--dark-color: #151515;
 }
@@ -9,7 +9,7 @@
 html {
 	font-size: 62.5%;
 	font-family: 'Poppins', sans-serif;
-	background: -webkit-linear-gradient(left,#e4ded9,#FDF5E6, #FFE4E1, #ddc2ae);
+	background: -webkit-linear-gradient(left,#e4ded9,#FDF5E6, #FFE4E1, #eeded2);
 }
 
 * {

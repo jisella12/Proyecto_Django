@@ -1,0 +1,72 @@
+body{
+    background: -webkit-linear-gradient(left,#e4ded9,#FDF5E6, #FFE4E1, #ddc2ae);;
+    background-attachment: fixed;
+    display: block;
+    
+}
+.card {
+    padding: 8px 95px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    text-align: center;
+    width: 340px;
+    background: #fcfcfc;
+  
+  } 
+
+.card{
+    
+    width: 120%;
+   /*  text-align: justify; */
+    flex-direction: column;}
+
+ /*  .datos{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  } */
+  h1{
+    color: #283629;
+    font-size: 35px;
+  }
+  label{
+    color: #283629;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 15px;
+  
+  }
+  input, textarea{
+    padding: 1px 9px;
+    border-radius: 25px;
+    margin-bottom: 20px;
+    flex-direction: column;
+    background-color: #fffbf4;
+    border: 2px solid #271900;
+    color: #010101;
+    outline: none;
+    cursor: pointer;
+  
+  }
+  input::placeholder, textarea::placeholder {
+    color: #fcfcfc;
+  } 
+  .form-txt{
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+  
+  }
+  .form-txt a{
+    color: black;
+  }
+/*   #guardar, #limpiar{
+    padding: 17px 25px;
+    border-radius: 25px;
+    margin-bottom: 20px;
+    border: 2px solid #271900;
+    background-color: #cc9e4f;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+  } */

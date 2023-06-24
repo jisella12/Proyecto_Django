@@ -15,7 +15,7 @@ body{
 
 
 
-.formulario{
+.row{
     width: 500px;
     max-width: 100%;
     margin: auto; 
@@ -34,9 +34,9 @@ body{
     color: black;
 }
 
-.formulario__input, 
-.formulario__label, 
-.formulario__enviar{
+.input, 
+.label, 
+.enviar{
     display: block;
     width: 100%;
     font-size: 1.3em;
@@ -86,7 +86,7 @@ body{
     margin-top: -135px;
 }
 
-.btn{
+#btnEnviar{
 
     border-radius: 10px;
     border-color: lightcyan;
