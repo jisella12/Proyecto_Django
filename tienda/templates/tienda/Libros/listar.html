@@ -1,4 +1,5 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,6 +14,7 @@
     <title>Listar Libros</title>
 </head>
 <body>
+    
     <br>
     <br>
     <div class="card">
@@ -40,12 +42,14 @@
                     <td>{{lista.autor}}</td>
                     <td>
                         <a href="{% url 'modificarLibro' lista.id %}" class="btn btn-info btn-sm">Modificar</a>
-                        <a href="{% url 'eliminarLibro' lista.id %}"  class="btn btn-danger btn-sm">Eliminar</a>
+                        <a href="#" onclick="eliminarLibro({{ lista.id }})" class="btn btn-danger btn-sm">Eliminar</a>
                     </td>
                 
                 </tr>
                 {% endfor %}
             </table>
+            
+
         </div>
     </div>
    
@@ -60,6 +64,42 @@
             $("#idMensajes").delay(2000).fadeOut("slow");
         });
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    {% if messages %}
+                {% for m in messages%}
+                    <script>
+                        Swal.fire({
+                            "title": "Felicitaciones",
+                            "text": "{{m}}",
+                            "icon": "success"
+                        })
+                    </script>
+                {% endfor %}
+    {% endif %}
+    {% block js%}
+        <script>
+           function eliminarLibro(id) {
+            Swal.fire({
+                "title": "¿Estas Seguro?",
+                "text": "Esta Accion no se puede deshacer",
+                "icon": "question",
+                "showCancelButton":true,
+                "cancelButtonText":"No, Cancelar",
+                "confirmButtonText":"Si, Eliminar",
+                "reverseButtons":true,
+                "confirmButtonColor": "#dc3545"
+
+            })
+            .then(function(result) {
+                if(result.isConfirmed) {
+                    window.location.href = "/eliminarLibro/"+id+"/"
+                }
+            })
+            
+           } 
+        </script>
+    {% endblock %}
     
 </body>
 </html>

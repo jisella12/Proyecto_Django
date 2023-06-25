@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import ContactoForm, LibroForm
 from .models import Libro
+from django.contrib import messages
 # Create your views here.
 
 
@@ -55,7 +56,7 @@ def AgregarLibro(request):
         formulario = LibroForm(data=request.POST, files=request.FILES)
         if formulario.is_valid():
             formulario.save()
-            data ["mensaje"] = "Guardado Correctamente"
+            messages.success(request,"Producto Registrado")
         else:
             data ["form"] = formulario
 
@@ -81,6 +82,7 @@ def modificarLibro(request, id):
         formulario = LibroForm(data=request.POST, instance=libro, files=request.FILES)
         if formulario.is_valid():
             formulario.save()
+            messages.success(request, "Modificado Correctamente")
             return redirect(to="libroList")
         else:
             data ["form"] = formulario
@@ -90,4 +92,5 @@ def modificarLibro(request, id):
 def eliminarLibro(request, id):
     libro = get_object_or_404(Libro, id=id)
     libro.delete()
+    messages.success(request, "Eliminado Correctamente")
     return redirect(to="libroList")
