@@ -59,13 +59,16 @@
 				<li class="nav-item">
 				<a class="nav-link" style="color: black;" href="{% url 'Nosotros' %}">Nosotros</a>
 				</li>
-        <li class="nav-item">
+				{% if perms.tienda.add_libro %}
+				<li class="nav-item">
 					<a class="nav-link" style="color: black;" href="{% url 'agregar' %}">Agregar</a>
-					</li>
+				</li>
+				{% endif %}
+				{% if perms.tienda.add_libro %}
 				<li class="nav-item">
 				<a class="nav-link" style="color: black;" href="{% url 'libroList' %}">Listar</a>
 				</li>
-			
+				{% endif %}
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" style="color: black;" data-bs-toggle="dropdown" href="{% url 'productos' %}" role="button" aria-expanded="true">Productos</a>
 					<ul class="dropdown-menu">
@@ -77,9 +80,30 @@
 					
 					</ul>
 				</li>
+				{% if user.is_authenticated %}
+				<li>
+					<a class="nav-link" style="color: black;" href="#">{{ user.username }}
+					</a>
+				</li>
+
+				<li>
+					<a class="nav-link" style="color: black;" href="{% url 'logout' %}">Cerrar Session</a>
+				</li>
+				
+
+				{% else %}
+				<li>
+					<a class="nav-link" style="color: black;" href="{% url 'login' %}">Iniciar Sesion</a>
+				</li>
+				<li>
+					<a class="nav-link" style="color: black;" href="{% url 'registro' %}">Registrate</a>
+				</li>
+				{% endif %}
+			
+				
 				
 			</ul>
-		</section>
+			</section>
     <!-- Productos romance clasico -->
     {% load humanize %}
     <div class="produ">

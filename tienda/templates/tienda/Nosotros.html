@@ -23,67 +23,91 @@
 </head>
 <body>
     <header>
-        <div class="container-hero" >
-            <div class="container hero">
-                <div class="customer-support">
-                    <i class="fa-solid fa-headset"></i>
-                    <div class="content-customer-support">
-                        <span class="text">Soporte al cliente</span>
-                        <span class="number">123-456-7890</span>
-                    </div>
-                </div>
+			<div class="container-hero" >
+				<div class="container hero">
+					<div class="customer-support">
+						<i class="fa-solid fa-headset"></i>
+						<div class="content-customer-support">
+							<span class="text">Soporte al cliente</span>
+							<span class="number">123-456-7890</span>
+						</div>
+					</div>
 
-                <div class="container-logo">
-                    <i class="books"></i>
-                    <h1 class="logo"><a href="#" > <img src="{% static 'images/LOGO (4).svg'%}" alt="" width="80" height="80"> </a></h1>
-                </div>
+					<div class="container-logo">
+						<i class="books"></i>
+						<h1 class="logo"><a href="#" > <img src="{% static 'images/LOGO (4).svg'%}" alt="" width="80" height="80"> </a></h1>
+					</div>
 
-                <div class="container-user">
-                    <a href="{% url 'Login' %}"><i class="fa-solid fa-user"></i></a>
-                    <a href="{% url 'carro' %}"><i class="fa-solid fa-basket-shopping"></i></a>
-                    <div class="content-shopping-cart">
-                        <span class="link-carrito"></a> </span>
-                        <span class="number">(0)</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-        <!-- fin del header -->
+					<div class="container-user">
+						<a href="{% url 'Login' %}"><i class="fa-solid fa-user"></i></a>
+						<a href="{% url 'carro' %}"><i class="fa-solid fa-basket-shopping"></i></a>
+						<div class="content-shopping-cart">
+							<span class="link-carrito"></a> </span>
+							<span class="number">(0)</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+			<!-- fin del header -->
 
 
-        <!--aqui comienza el nav-->
-        <section class="nav-total">
-        <ul class="nav nav-tabs" style="justify-content:center;">
-            <li class="nav-item">
-            <a class="nav-link"  style="color: black;"  aria-current="page" href="{% url 'Inicio' %}">Inicio</a>
-            </li>
-            
-            
-            <li class="nav-item">
-            <a class="nav-link" style="color: black;" href="{% url 'Nosotros' %}">Nosotros</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" style="color: black;" href="{% url 'agregar' %}">Agregar</a>
-                </li>
-            <li class="nav-item">
-            <a class="nav-link" style="color: black;" href="{% url 'libroList' %}">Listar</a>
-            </li>
-        
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" style="color: black;" data-bs-toggle="dropdown" href="{% url 'productos' %}" role="button" aria-expanded="true">Productos</a>
-                <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="{% url 'productos' %}">Romance</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="{% url 'fantasia' %}">Fantasía</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="{% url 'RomanceClasico' %}">Romance Clasico</a></li>
-                
-                </ul>
-            </li>
-            
-        </ul>
-        </section>
+			<!--aqui comienza el nav-->
+			<section class="nav-total">
+			<ul class="nav nav-tabs" style="justify-content:center;">
+				<li class="nav-item">
+				<a class="nav-link"  style="color: black;"  aria-current="page" href="{% url 'Inicio' %}">Inicio</a>
+				</li>
+				
+				
+				<li class="nav-item">
+				<a class="nav-link" style="color: black;" href="{% url 'Nosotros' %}">Nosotros</a>
+				</li>
+				{% if perms.tienda.add_libro %}
+				<li class="nav-item">
+					<a class="nav-link" style="color: black;" href="{% url 'agregar' %}">Agregar</a>
+				</li>
+				{% endif %}
+				{% if perms.tienda.add_libro %}
+				<li class="nav-item">
+				<a class="nav-link" style="color: black;" href="{% url 'libroList' %}">Listar</a>
+				</li>
+				{% endif %}
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" style="color: black;" data-bs-toggle="dropdown" href="{% url 'productos' %}" role="button" aria-expanded="true">Productos</a>
+					<ul class="dropdown-menu">
+					<li><a class="dropdown-item" href="{% url 'productos' %}">Romance</a></li>
+					<li><hr class="dropdown-divider"></li>
+					<li><a class="dropdown-item" href="{% url 'fantasia' %}">Fantasía</a></li>
+					<li><hr class="dropdown-divider"></li>
+					<li><a class="dropdown-item" href="{% url 'RomanceClasico' %}">Romance Clasico</a></li>
+					
+					</ul>
+				</li>
+				{% if user.is_authenticated %}
+				<li>
+					<a class="nav-link" style="color: black;" href="#">{{ user.username }}
+					</a>
+				</li>
+
+				<li>
+					<a class="nav-link" style="color: black;" href="{% url 'logout' %}">Cerrar Session</a>
+				</li>
+				
+
+				{% else %}
+				<li>
+					<a class="nav-link" style="color: black;" href="{% url 'login' %}">Iniciar Sesion</a>
+				</li>
+				<li>
+					<a class="nav-link" style="color: black;" href="{% url 'registro' %}">Registrate</a>
+				</li>
+				{% endif %}
+			
+				
+				
+			</ul>
+			</section>
         
         
     <section class="container blogs" style="text-align: center;">
