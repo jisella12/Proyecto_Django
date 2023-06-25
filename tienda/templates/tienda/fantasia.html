@@ -81,207 +81,30 @@
 				
 			</ul>
 
-        </section>
+    </section>
        
         
     <!-- Productos Fantasia -->
+    {% load humanize %}
+    <!-- productos -->
     <div class="produ">
+      {% for p in libros %}
         <div class="card" style="width: 23rem;">
-            <img src="images/f1.jfif" alt="">
+            {% if p.imagen %}
+            <img src="{{ p.imagen.url }}" alt="">
+            {% endif %}
             <div class="card-body">
-              <h5 class="card-title">Antes de diciembre</h5>
-              <p class="price">$12.285 <span>$15.520</span></p>
-              
+              <h5>{{p.autor | capfirst}}</h5>
+              <h2 class="card-title">{{p.nombre | title}}</h2>
+              <h3>${{p.precio | intcomma}}
+              </h3>
+   
               <a href="#" class="btn-btn-primary">Comprar</a>
             </div>
         </div>
-
-        <div class="card" style="width: 23rem;">
-            <img src="images/f2.jfif" alt="">
-            <div class="card-body">
-              <h5 class="card-title">The Cruel Prince</h5>
-              <p class="price">$12.285 <span>$15.520</span></p>
-              
-              <a href="#" class="btn-btn-primary">Comprar</a>
-            </div>
-        </div>
-
-        <div class="card" style="width: 23rem;">
-            <img src="images/f3.jfif" alt="">
-            <div class="card-body">
-              <h5 class="card-title">Rojo Blanco y Sangre Azul</h5>
-              <p class="price">$12.285 <span>$15.520</span></p>
-              
-              <a href="#" class="btn-btn-primary">Comprar</a>
-            </div>
-        </div>
-
-        <div class="card" style="width: 23rem;">
-            <img src="images/f4.png" alt="">
-            <div class="card-body">
-              <h5 class="card-title">Dos metros de ti</h5>
-              <p class="price">$12.285 <span>$15.520</span></p>
-              
-              <a href="#" class="btn-btn-primary">Comprar</a>
-            </div>
-        </div>
-
-        <div class="card" style="width: 23rem;">
-            <img src="images/f5.jfif" alt="">
-            <div class="card-body">
-              <h5 class="card-title">Las ventajas de ser invisible</h5>
-              <p class="price">$12.285 <span>$15.520</span></p>
-              
-              <a href="#" class="btn-btn-primary">Comprar</a>
-            </div>
-        </div>
-
-        <div class="card" style="width: 23rem;">
-            <img src="images/f6.jfif" alt="">
-            <div class="card-body">
-              <h5 class="card-title">Ciudades de Ceniza</h5>
-              <p class="price">$12.285 <span>$15.520</span></p>
-              
-              <a href="#" class="btn-btn-primary">Comprar</a>
-            </div>
-        </div>
-
-        <div class="card" style="width: 23rem;">
-            <img src="images/f7.jfif" alt="">
-            <div class="card-body">
-              <h5 class="card-title">El dia que dejo de nevar en alaska</h5>
-              <p class="price">$12.285 <span>$15.520</span></p>
-              
-              <a href="#" class="btn-btn-primary">Comprar</a>
-            </div>
-        </div>
-
-        <div class="card" style="width: 23rem;">
-            <img src="images/f8.jfif" alt="">
-            <div class="card-body">
-              <h5 class="card-title">Hasta que nos quedemos in estrellas</h5>
-              <p class="price">$12.285 <span>$15.520</span></p>
-              
-              <a href="#" class="btn-btn-primary">Comprar</a>
-            </div>
-        </div>
-
-        <div class="card" style="width: 23rem;">
-            <img src="images/f9.jfif" alt="">
-            <div class="card-body">
-              <h5 class="card-title">Love Theoretically</h5>
-              <p class="price">$12.285 <span>$15.520</span></p>
-              
-              <a href="#" class="btn-btn-primary">Comprar</a>
-            </div>
-        </div>
-
-        <div class="card" style="width: 23rem;">
-            <img src="images/f10.jfif" alt="">
-            <div class="card-body">
-              <h5 class="card-title">Ciudades de Fuego</h5>
-              <p class="price">$13.825 <span>$15.500</span></p>
-              
-              <a href="#" class="btn-btn-primary">Comprar</a>
-            </div>
-        </div>
-        
-        <div class="card" style="width: 23rem;">
-            <img src="images/f11.png" alt="">
-            <div class="card-body">
-              <h5 class="card-title">La hipotesis del amor</h5>
-              <p class="price">$17.000 <span>22.500</span></p>
-              
-              <a href="#" class="btn-btn-primary">Comprar</a>
-            </div>
-        </div>
-
-        <div class="card" style="width: 23rem;">
-            <img src="images/f12.jfif" alt="">
-            <div class="card-body">
-              <h5 class="card-title">Asesino de brujas</h5>
-              <p class="price">$12.000 <span>$18.000</span></p>
-              
-              <a href="#" class="btn-btn-primary">Comprar</a>
-            </div>
-        </div>
-
-        <div class="card" style="width: 23rem;">
-            <img src="images/f13.jfif" alt="">
-            <div class="card-body">
-              <h5 class="card-title">Aristoteles y dante</h5>
-              <p class="price">$12.000 <span>$18.000</span></p>
-              
-              <a href="#" class="btn-btn-primary">Comprar</a>
-            </div>
-        </div>
-
-        <div class="card" style="width: 23rem;">
-            <img src="images/f14.jfif" alt="">
-            <div class="card-body">
-              <h5 class="card-title">Una corte de rosas y espinas</h5>
-              <p class="price">$23.850 <span>$35.500</span></p>
-              
-              <a href="#" class="btn-btn-primary">Comprar</a>
-            </div>
-        </div>
-
-        <div class="card" style="width: 23rem;">
-            <img src="images/f15.jfif" alt="">
-            <div class="card-body">
-              <h5 class="card-title">Un reino de carne y fuego</h5>
-              <p class="price">$13.815 <span>$15.530</span></p>
-              
-              <a href="#" class="btn-btn-primary">Comprar</a> 
-            </div>
-        </div>
-
-        <div class="card" style="width: 23rem;">
-            <img src="images/f16.jfif" alt="">
-            <div class="card-body">
-              <h5 class="card-title">Sombra y Hueso</h5>
-              <p class="price">$5.640</p>
-              
-              <a href="#"  class="btn-btn-primary">Comprar</a>
-            </div>
-        </div>
-        <div class="card" style="width: 23rem;">
-            <img src="images/f20.jfif" alt="">
-            <div class="card-body">
-              <h5 class="card-title">Sombra y Hueso</h5>
-              <p class="price">$5.640</p>
-              
-              <a href="#"  class="btn-btn-primary">Comprar</a>
-            </div>
-        </div>
-        <div class="card" style="width: 23rem;">
-            <img src="images/f21.webp" alt="">
-            <div class="card-body">
-              <h5 class="card-title">Sombra y Hueso</h5>
-              <p class="price">$5.640</p>
-              
-              <a href="#"  class="btn-btn-primary">Comprar</a>
-            </div>
-        </div>
-        <div class="card" style="width: 23rem;">
-            <img src="images/f22.jfif" alt="">
-            <div class="card-body">
-              <h5 class="card-title">Sombra y Hueso</h5>
-              <p class="price">$5.640</p>
-              
-              <a href="#"  class="btn-btn-primary">Comprar</a>
-            </div>
-        </div>
-        <div class="card" style="width: 23rem;">
-            <img src="images/f23.jfif" alt="">
-            <div class="card-body">
-              <h5 class="card-title">Sombra y Hueso</h5>
-              <p class="price">$5.640</p>
-              
-              <a href="#"  class="btn-btn-primary">Comprar</a>
-            </div>
-        </div>
+        {% endfor %}
     </div>
+    
     <!-- Footer -->
     <footer class="footer">
         <div class="container container-footer">

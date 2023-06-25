@@ -21,6 +21,7 @@ class Libro(models.Model):
     categoria = models.IntegerField(choices=opciones_categoria)
     nuevo = models.BooleanField()
     autor = models.ForeignKey(Autor, on_delete=models.PROTECT)
+    imagen = models.ImageField(upload_to="Libros",null=True)
 
     def __str__(selft):
         return selft.nombre

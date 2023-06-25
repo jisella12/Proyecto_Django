@@ -33,16 +33,27 @@ def Login(request):
     return render(request, 'tienda/Login.html')
 
 def productos(request):
-    return render(request, 'tienda/productos.html',)
+    libros = Libro.objects.all()
+    data ={
+        'libros': libros
+    }
+    return render(request, 'tienda/productos.html',data)
 
 def Registro(request):
     return render(request, 'tienda/Registro.html')
 def fantasia(request):
-    return render(request, 'tienda/fantasia.html')
+    libros = Libro.objects.all()
+    data ={
+        'libros': libros
+    }
+    return render(request, 'tienda/fantasia.html',data)
 
 def RomanceClasico(request):
-    return render(request, 'tienda/RomanceClasico.html')
-
+    libros = Libro.objects.all()
+    data ={
+        'libros': libros
+    }
+    return render(request, 'tienda/RomanceClasico.html',data)
 
 """ agregar, modificar, listar """
 
@@ -94,3 +105,4 @@ def eliminarLibro(request, id):
     libro.delete()
     messages.success(request, "Eliminado Correctamente")
     return redirect(to="libroList")
+
