@@ -122,8 +122,7 @@ color: rgb(141, 77, 77);
 
 }
 .banner {
-	background-image: linear-gradient(100deg, #000000, #00000020),
-		url('https://i.pinimg.com/564x/16/92/15/169215aedd8465336dfa156230e2ff9a.jpg');
+	background: url('https://i.pinimg.com/564x/16/92/15/169215aedd8465336dfa156230e2ff9a.jpg');
 	height: 60rem;
 	background-size: cover;
 	background-position: center;

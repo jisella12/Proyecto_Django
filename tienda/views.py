@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import ContactoForm, LibroForm
+from .forms import ContactoForm, LibroForm, CustomUserCeationForm
 from .models import Libro
 from django.contrib import messages
 from django.core.paginator import Paginator
 from django.http import Http404
+from django.contrib.auth import authenticate, login
 # Create your views here.
 
 
@@ -117,3 +118,18 @@ def eliminarLibro(request, id):
     messages.success(request, "Eliminado Correctamente")
     return redirect(to="libroList")
 
+def registro(request):
+    data = {
+        'form': CustomUserCeationForm()
+    }
+    if request.method == 'POST':
+        formulario = CustomUserCeationForm(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            user = authenticate(username=formulario.cleaned_data["username"], password=formulario.cleaned_data["password1"])
+            login(request, user)
+            messages.success(request, "Te has Registrado Correctamente")
+            return redirect(to="Inicio")
+        data["form"] = formulario
+
+    return render(request, 'registration/registro.html',data)

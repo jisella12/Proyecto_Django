@@ -30,6 +30,8 @@ ALLOWED_HOSTS = []
 """ mensaje de alerta en pagina """
 MESSAGE_STORAGE = "django.contrib.messages.storage.cookie.CookieStorage"
 
+LOGIN_REDIRECT_URL = 'Inicio'
+LOGOUT_REDIRECT_URL = 'Inicio'
 
 # Application definition
 
@@ -41,8 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'tienda',
+    'django.contrib.humanize',
     'crispy_forms',
-    'django.contrib.humanize'
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

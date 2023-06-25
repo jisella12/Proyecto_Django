@@ -21,7 +21,7 @@
                     <hr>
                     <form action="" class="" method="post" enctype="multipart/form-data">
                         {% csrf_token %}
-                        {{ form  }} 
+                        {{ form.as_p  }} 
                         <br>
                         <hr>
                         <div class="d-flex justify-content-end">

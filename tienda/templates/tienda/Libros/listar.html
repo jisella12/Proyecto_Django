@@ -29,7 +29,7 @@
                         <th scope="col">Precio</th>
                         <th scope="col">Categoria</th>
                         <th scope="col">Autor</th>
-                        <th scope="col">Portada</th>
+                        
                         <th scope="col">Opciones</th>
                         
                     </tr>
@@ -42,7 +42,7 @@
                     <td>{{lista.precio}}</td>
                     <td>{{lista.categoria}}</td>
                     <td>{{lista.autor}}</td>
-                    <td>{{lista.imagen}}</td>
+                    
                     <td>
                         <a href="{% url 'modificarLibro' lista.id %}" class="btn btn-info btn-sm">Modificar</a>
                         <a href="#" onclick="eliminarLibro({{ lista.id }})" class="btn btn-danger btn-sm">Eliminar</a>
@@ -51,6 +51,8 @@
                 </tr>
                 {% endfor %}
             </table>
+            <hr>
+            
             <div>
                 {% include 'tienda/paginator.html' %}
             </div>
