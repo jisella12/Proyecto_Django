@@ -35,7 +35,7 @@
                     </tr>
                 </thead>
 
-                {% for lista in libros%}
+                {% for lista in entity %}
                 <tr>
                     <td>{{lista.isbn}}</td>
                     <td>{{lista.nombre}}</td>
@@ -51,6 +51,9 @@
                 </tr>
                 {% endfor %}
             </table>
+            <div>
+                {% include 'tienda/paginator.html' %}
+            </div>
             
 
         </div>

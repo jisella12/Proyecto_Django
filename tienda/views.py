@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .forms import ContactoForm, LibroForm
 from .models import Libro
 from django.contrib import messages
+from django.core.paginator import Paginator
+from django.http import Http404
 # Create your views here.
 
 
@@ -77,8 +79,17 @@ def AgregarLibro(request):
 
 def libroList(request):
     libros = Libro.objects.all()
+    page = request.GET.get('page',1)
+
+    try:
+        paginator = Paginator(libros, 5)
+        libros = paginator.page(page)
+    except:
+        raise Http404
+
     contexto={
-        'libros':libros
+        'entity':libros,
+        'paginator': paginator
     }
     return render(request, 'tienda/Libros/listar.html',contexto)
 
