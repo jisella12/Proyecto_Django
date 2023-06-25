@@ -44,8 +44,12 @@
                     <td>{{lista.autor}}</td>
                     
                     <td>
+                        {% if perms.tienda.change_libro %}
                         <a href="{% url 'modificarLibro' lista.id %}" class="btn btn-info btn-sm">Modificar</a>
+                        {% endif %}
+                        {% if perms.tienda.delate_libro %}
                         <a href="#" onclick="eliminarLibro({{ lista.id }})" class="btn btn-danger btn-sm">Eliminar</a>
+                        {% endif %}
                     </td>
                 
                 </tr>

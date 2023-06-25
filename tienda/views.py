@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.core.paginator import Paginator
 from django.http import Http404
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required, permission_required
 # Create your views here.
 
 
@@ -61,7 +62,7 @@ def RomanceClasico(request):
 """ agregar, modificar, listar """
 
 """ agregar """
-
+@permission_required('tienda.add_libro')
 def AgregarLibro(request):
     data = {
         'form': LibroForm()
@@ -77,7 +78,7 @@ def AgregarLibro(request):
     return render(request, 'tienda/Libros/agregar.html',data)
 
 """ Listar """
-
+@permission_required('tienda.view_libro')
 def libroList(request):
     libros = Libro.objects.all()
     page = request.GET.get('page',1)
@@ -95,6 +96,7 @@ def libroList(request):
     return render(request, 'tienda/Libros/listar.html',contexto)
 
 """ Modificar """
+@permission_required('tienda.change_libro')
 def modificarLibro(request, id):
 
     libro = get_object_or_404(Libro, id=id)
@@ -112,6 +114,7 @@ def modificarLibro(request, id):
     return render(request, 'tienda/Libros/modificar.html',data)
 
 """ Eliminar """
+@permission_required('tienda.delete_libro')
 def eliminarLibro(request, id):
     libro = get_object_or_404(Libro, id=id)
     libro.delete()

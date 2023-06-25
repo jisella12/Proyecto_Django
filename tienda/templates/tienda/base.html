@@ -70,7 +70,7 @@
 					<a class="nav-link" style="color: black;" href="{% url 'agregar' %}">Agregar</a>
 				</li>
 				{% endif %}
-				{% if perms.tienda.add_libro %}
+				{% if perms.tienda.view_libro %}
 				<li class="nav-item">
 				<a class="nav-link" style="color: black;" href="{% url 'libroList' %}">Listar</a>
 				</li>
