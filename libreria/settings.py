@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'tienda',
     'crispy_forms',
-    'django.contrib.humanize'
+    ##'django.contrib.humanize'
+    'carro',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -70,6 +71,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'carro.context_processor.importe_total_carro'
             ],
         },
     },
