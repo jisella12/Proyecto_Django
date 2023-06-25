@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-		
+    <link rel="stylesheet" href="{% static 'css/crud.css'%}">
     <title>Ingreso al Sistema</title>
 </head>
 <body>
+    <br>
+    <br>
     <br>
     <br>
     {% load crispy_forms_tags %}
@@ -24,11 +24,13 @@
                         <hr>
                         <form action="" method="post">
                             {% csrf_token %}
-                            {{ form  }}
-                            <a href="{% url 'Inicio' %}">ir a Inicio</a> |
-                            <a href="{% url 'registro' %}">Registrate</a>
+                            {{ form|crispy  }}
+                            
 
-                            <input type="submit" value="ingresar" class="btn btn-success float-right">
+                            <input type="submit" value="ingresar" class="btn btn-primary float-right" style="background-color: black;">
+                            
+                            <a href="{% url 'Inicio' %}" style="text-decoration: none;">ir a Inicio</a> |
+                            <a href="{% url 'registro' %}" style="text-decoration: none;">Registrate</a>
                         </form>
                     </div>
                 </div>
@@ -36,6 +38,9 @@
             </div>
         </div>
     </div>
+    <br>
+    <br>
+    <br>
     
 </body>
 </html>
