@@ -20,7 +20,7 @@
                     <hr>
                     <form action="" class="" method="post" enctype="multipart/form-data">
                         {% csrf_token %}
-                        {{ form  }} 
+                        {{ form|crispy  }} 
                         <br>
                         <hr>
                         <div class="d-flex justify-content-end">

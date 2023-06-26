@@ -60,14 +60,24 @@
 				<li class="nav-item">
 				<a class="nav-link" style="color: black;" href="{% url 'Nosotros' %}">Nosotros</a>
 				</li>
+				
 				{% if perms.tienda.add_libro %}
-				<li class="nav-item">
-					<a class="nav-link" style="color: black;" href="{% url 'agregar' %}">Agregar</a>
-				</li>
-				{% endif %}
-				{% if perms.tienda.add_libro %}
-				<li class="nav-item">
-				<a class="nav-link" style="color: black;" href="{% url 'libroList' %}">Listar</a>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" style="color: black;" data-bs-toggle="dropdown" href="{% url 'productos' %}" role="button" aria-expanded="true">Administracion</a>
+					<ul class="dropdown-menu">
+						{% if perms.tienda.add_libro %}
+						<li class="nav-item">
+							<a class="nav-link" style="color: black;" href="{% url 'agregar' %}">Agregar</a>
+						</li>
+						{% endif %}
+						<li><hr class="dropdown-divider"></li>
+						{% if perms.tienda.view_libro %}
+						<li class="nav-item">
+						<a class="nav-link" style="color: black;" href="{% url 'libroList' %}">Listar</a>
+						</li>
+						{% endif %}
+						<li><hr class="dropdown-divider"></li>
+					</ul>
 				</li>
 				{% endif %}
 				<li class="nav-item dropdown">
@@ -105,7 +115,6 @@
 				
 			</ul>
 			</section>
-       
         
     <!-- Productos Fantasia -->
     {% load humanize %}
