@@ -21,8 +21,18 @@
               <h2 class="card-title">{{p.nombre | title}}</h2>
               <h3>${{p.precio | intcomma}}
               </h3>
-   
-              <a href="#" class="btn-btn-primary">Comprar</a>
+
+              <button id="comprarBtn">Comprar</button>
+
+<script>
+    var comprarBtn = document.getElementById('comprarBtn');
+    comprarBtn.addEventListener('click', function() {
+        <a href="{% url 'carrito' %}"></a>
+    });
+</script>
+
+
+
             </div>
         </div>
         {% endfor %}

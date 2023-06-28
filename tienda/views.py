@@ -27,6 +27,9 @@ def Inicio(request):
     context={}
     return render(request, 'tienda/Inicio.html', context)
 
+def carrito(request):
+    return render(request, 'tienda/carrito.html')
+
 def Nosotros(request):
     return render(request, 'tienda/Nosotros.html')
 

@@ -6,8 +6,29 @@
 
 <link rel="stylesheet" href="{% static 'css/carrito.css'%}">
 
+
+
+{% load humanize %}
+<!-- productos -->
+<div class="produ">
+  {% for p in libros %}
+    <div class="card" style="width: 23rem;">
+        {% if p.imagen %}
+        <img src="{{ p.imagen.url }}" alt="">
+        {% endif %}
+        <div class="card-body">
+          <h5>{{p.autor | capfirst}}</h5>
+          <h2 class="card-title">{{p.nombre | title}}</h2>
+          <h3>${{p.precio | intcomma}}
+          </h3>
+
+          <a href="#" class="btn-btn-primary">Comprar</a>
+        </div>
+    </div>
+    {% endfor %}
+
     <!-- START SECTION STORE -->
-    <section class="store" style="margin-top: 8%;">
+  <!--   <section class="store" style="margin-top: 8%;">
         <div class="container">
             <div class="items">
                 <div class="row">
@@ -89,9 +110,12 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <!-- END SECTION STORE -->
     <!-- START SECTION SHOPPING CART -->
+
+
+    
     <section class="shopping-cart">
         <div class="container">
             <h1 class="text-center">CARRITO</h1>
@@ -172,5 +196,8 @@
 
     </section>
     <!-- END SECTION SHOPPING CART -->
+
+
+    <script src="{% static './js/carro.js'%}"></script>
 
 {% endblock %}

@@ -42,3 +42,9 @@ class Contacto(models.Model):
     
     def __str__(selft):
         return selft.nombre
+    
+
+class Registro(models.Model):
+    nombre = models.CharField(max_length=25)
+    nombre_usuario = models.CharField(max_length=35)
+    email = models.CharField(max_length=100)

@@ -1,0 +1,108 @@
+{% extends 'tienda/base.html' %}
+
+{% block contenido1 %}
+
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/carrito.css'%}">
+
+
+
+{% load humanize %}
+<!-- productos -->
+<div class="produ">
+  {% for p in libros %}
+    <div class="card" style="width: 23rem;">
+        {% if p.imagen %}
+        <img src="{{ p.imagen.url }}" alt="">
+        {% endif %}
+        <div class="card-body">
+          <h5>{{p.autor | capfirst}}</h5>
+          <h2 class="card-title">{{p.nombre | title}}</h2>
+          <h3>${{p.precio | intcomma}}
+          </h3>
+
+          <a href="#" class="btn-btn-primary">Comprar</a>
+        </div>
+    </div>
+    {% endfor %}
+
+
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+      
+      
+      
+      
+      <title>Tabla de Productos</title>
+    </head>
+    <body>
+      <div class="container">
+        <br>
+        <br>
+        <br>
+
+        <h1></h1>
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th></th>
+              <th>Nombre</th>
+              <th>Precio</th>
+              <th>Cantidad</th>
+              <th>Sub-total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td> <img src="" alt=""></td>
+              <td>Producto 1</td>
+              <td>$10000</td>
+              <td>
+                <select>
+                  <option value="">Selecciona un número</option>
+                  <!-- Generar opciones con números del 1 al 10 -->
+                  {% for numero in numeros %}
+                    <option value="{{ numero }}">{{ numero }}</option>
+                  {% endfor %}
+                </select>
+                
+              </td>
+              <td><button class="btn btn-dark">Agregar al Carrito</button></td>
+            </tr>
+            
+            <!-- Agrega más filas según tus necesidades -->
+          </tbody>
+        </table>
+      </div>
+    
+
+
+
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    </body>
+    </html>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    {% endblock %}
