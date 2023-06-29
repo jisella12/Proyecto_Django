@@ -1,82 +1,54 @@
-{% extends 'tienda/base.html' %}
+
+{%extends 'tienda/base.html'%}
 
 {% block contenido1 %}
 
 {% load static %}
 
-<link rel="stylesheet" href="{% static 'css/carrito.css'%}">
 
-
-
-{% load humanize %}
-<!-- productos -->
-<div class="produ">
-  {% for p in libros %}
-    <div class="card" style="width: 23rem;">
-        {% if p.imagen %}
-        <img src="{{ p.imagen.url }}" alt="">
-        {% endif %}
-        <div class="card-body">
-          <h5>{{p.autor | capfirst}}</h5>
-          <h2 class="card-title">{{p.nombre | title}}</h2>
-          <h3>${{p.precio | intcomma}}
-          </h3>
-
-          <a href="#" class="btn-btn-primary">Comprar</a>
-        </div>
-    </div>
+<div class="alert-alert-primary" role="alert">
+  <table class="table table-hover" style="font-size: large;">
+    <thead>
+      <tr>
+        <th scope="row" colspan="3" class="text-center">CARRITO</th>
+      </tr>
+      <tr>
+        <th scope="col">NOMBRE</th>
+        <th scope="col">PRECIO</th>
+        <th scope="col">CANTIDAD</th>
+      </tr>
+    </thead>
+    <tbody><br><br>
+    {% if request.session.carrito.items %}
+    {% for key, value in request.session.carrito.items %}
+      <tr>
+        <td>{{value.nombre}}</td>
+        <td>{{value.precio}}</td>
+        <td>{{value.acumulado}}
+          <a href="{% url 'Add' value.producto_id %}" class="badge btn btn-dark badge-dark">+</a>
+          <a href="{% url 'Sub' value.producto_id %}" class="badge btn btn-dark badge-dark">-</a>
+        </td>
+      </tr>
     {% endfor %}
-
-
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-      
-      
-      
-      
-      <title>Tabla de Productos</title>
-    </head>
-    <body>
-      <div class="container">
-        <br>
-        <br>
-        <br>
-
-        <h1></h1>
-        <table class="table">
-          <thead class="thead-dark">
-            <tr>
-              <th></th>
-              <th>Nombre</th>
-              <th>Precio</th>
-              <th>Cantidad</th>
-              <th>Sub-total</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td> <img src="" alt=""></td>
-              <td>Producto 1</td>
-              <td>$10000</td>
-              <td>
-                <select>
-                  <option value="">Selecciona un número</option>
-                  <!-- Generar opciones con números del 1 al 10 -->
-                  {% for numero in numeros %}
-                    <option value="{{ numero }}">{{ numero }}</option>
-                  {% endfor %}
-                </select>
-                
-              </td>
-              <td><button class="btn btn-dark">Agregar al Carrito</button></td>
-            </tr>
-            
-            <!-- Agrega más filas según tus necesidades -->
-          </tbody>
-        </table>
-      </div>
-    
-
-
+    {% else %}
+    <tr>
+        <td colspan="3">
+            <div class="alert alert-danger text-center"> Sin Productos </div>
+        </td>
+    </tr>
+    {% endif %}
+      <tr>
+        <th scope="row">Total:</th>
+        <td colspan="2">$ {{total_carrito}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  </div>
+  <div class="row text-center" >
+      <div class="col-6"><a href="{% url 'CLS' %}" class="btn-btn-primary">Limpiar</a></div>
+      <div class="col-6"><a href="#" class="btn-btn-primary ">Comprar</a></div>
+  </div>
 
       <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
@@ -92,17 +64,14 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
     {% endblock %}
+
+
+
+
+
+
+
+
+
+

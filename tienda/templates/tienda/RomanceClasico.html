@@ -36,7 +36,7 @@
 
 					<div class="container-user">
 						<a href="{% url 'Login' %}"><i class="fa-solid fa-user"></i></a>
-						<a href="{% url 'carro' %}"><i class="fa-solid fa-basket-shopping"></i></a>
+						<a href="{% url 'carrito' %}"><i class="fa-solid fa-basket-shopping"></i></a>
 						<div class="content-shopping-cart">
 							<span class="link-carrito"></a> </span>
 							<span class="number">(0)</span>
@@ -115,7 +115,9 @@
 			</ul>
 			</section>
     <!-- Productos romance clasico -->
+
     {% load humanize %}
+    <!-- productos -->
     <div class="produ">
       {% for p in libros %}
         <div class="card" style="width: 23rem;">
@@ -127,12 +129,17 @@
               <h2 class="card-title">{{p.nombre | title}}</h2>
               <h3>${{p.precio | intcomma}}
               </h3>
-   
-              <a href="#" class="btn-btn-primary">Comprar</a>
+
+              <a href="{% url 'Add' producto_id=p.id %}" class="btn-btn-primary">Comprar</a>
+
+
+
+
             </div>
         </div>
         {% endfor %}
     </div>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container container-footer">

@@ -22,14 +22,8 @@
               <h3>${{p.precio | intcomma}}
               </h3>
 
-              <button id="comprarBtn">Comprar</button>
+              <a href="{% url 'Add' producto_id=p.id %}" class="btn-btn-primary">Comprar</a>
 
-<script>
-    var comprarBtn = document.getElementById('comprarBtn');
-    comprarBtn.addEventListener('click', function() {
-        <a href="{% url 'carrito' %}"></a>
-    });
-</script>
 
 
 

@@ -1,11 +1,13 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import ContactoForm, LibroForm, CustomUserCeationForm
-from .models import Libro
+from .models import Carrito, Libro
+from .carrito import Carrito
 from django.contrib import messages
 from django.core.paginator import Paginator
 from django.http import Http404
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required, permission_required
+
 # Create your views here.
 
 
@@ -27,14 +29,14 @@ def Inicio(request):
     context={}
     return render(request, 'tienda/Inicio.html', context)
 
+def productos1(request):
+    return render(request, 'tienda/productos1.html')
+
 def carrito(request):
     return render(request, 'tienda/carrito.html')
 
 def Nosotros(request):
     return render(request, 'tienda/Nosotros.html')
-
-def carro(request):
-    return render(request, 'tienda/carro.html')
 
 def Login(request):
     return render(request, 'tienda/Login.html')
@@ -139,3 +141,33 @@ def registro(request):
         data["form"] = formulario
 
     return render(request, 'registration/registro.html',data)
+
+
+
+###carritoo
+def tienda(request):
+    productos = Libro.objects.all()
+    return render(request, "carrito.html", {'productos':productos})
+
+def agregar_producto(request, producto_id):
+    carrito = Carrito(request)
+    producto = Libro.objects.get(id=producto_id)
+    carrito.agregar(producto)
+    return redirect("carrito")
+
+def eliminar_producto(request, producto_id):
+    carrito = Carrito(request)
+    producto = Libro.objects.get(id=producto_id)
+    carrito.eliminar(producto)
+    return redirect("carrito")
+
+def restar_producto(request, producto_id):
+    carrito = Carrito(request)
+    producto = Libro.objects.get(id=producto_id)
+    carrito.restar(producto)
+    return redirect("carrito")
+
+def limpiar_carrito(request):
+    carrito = Carrito(request)
+    carrito.limpiar()
+    return redirect("productos")
