@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import ContactoForm, LibroForm, CustomUserCeationForm
+from .forms import AutorForm, ContactoForm, LibroForm, CustomUserCeationForm
 from .models import Carrito, Libro
 from .carrito import Carrito
 from django.contrib import messages
@@ -34,6 +34,7 @@ def productos1(request):
 
 def carrito(request):
     return render(request, 'tienda/carrito.html')
+
 
 def Nosotros(request):
     return render(request, 'tienda/Nosotros.html')
@@ -81,6 +82,23 @@ def AgregarLibro(request):
             data ["form"] = formulario
 
     return render(request, 'tienda/Libros/agregar.html',data)
+
+
+""" agregar autor """
+@permission_required('tienda.add_Autor')
+def AgregarAutor(request):
+    data = {
+        'form': AutorForm()
+    }
+    if request.method == 'POST':
+        formulario = AutorForm(data=request.POST, files=request.FILES)
+        if formulario.is_valid():
+            formulario.save()
+            messages.success(request,"Autor Registrado")
+        else:
+            data ["form"] = formulario
+
+    return render(request, 'tienda/Libros/agregarAutor.html',data)
 
 """ Listar """
 @permission_required('tienda.view_libro')

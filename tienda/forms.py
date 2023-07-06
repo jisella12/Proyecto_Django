@@ -51,13 +51,7 @@ class LibroForm(forms.ModelForm):
           raise ValidationError("Este nombre ya existe")
         return nombre
 
-    def clean_isbn(self):
-        isbn = self.cleaned_data["isbn"]
-        existe = Libro.objects.filter(isbn__iexact=isbn).exists()
-    
-        if existe:
-          raise ValidationError("Este ISBN ya existe")
-        return isbn
+
 
     class Meta:
         model = Libro
@@ -87,3 +81,24 @@ def clean_email(self):
         if '@' not in email:
             raise forms.ValidationError("El correo electrónico debe contener el símbolo '@'.")
         return email
+
+
+##form autor 
+class AutorForm(forms.ModelForm):
+    #validaciones
+    nombre = forms.CharField(min_length=3, max_length=30)
+    codigo = forms.IntegerField(min_value=2, max_value=400000)
+    
+  
+    def clean_nombre(self):
+        nombre = self.cleaned_data["nombre"]
+        existe = Libro.objects.filter(nombre__iexact=nombre).exists()
+    
+        if existe:
+          raise ValidationError("Este nombre ya existe")
+        return nombre
+    
+    
+    class Meta:
+        model = Libro
+        fields = ["codigo", "nombre"]
