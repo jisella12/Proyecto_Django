@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import AutorForm, ContactoForm, LibroForm, CustomUserCeationForm
-from .models import Carrito, Libro
+from .models import Carrito, Contacto, Libro
 from .carrito import Carrito
 from django.contrib import messages
 from django.core.paginator import Paginator
@@ -24,6 +24,8 @@ def contacto(request):
             data["form"] = formulario
 
     return render(request, 'tienda/contacto.html',data)
+
+
 
 def Inicio(request):
     context={}
@@ -117,6 +119,27 @@ def libroList(request):
         'paginator': paginator
     }
     return render(request, 'tienda/Libros/listar.html',contexto)
+
+##listar mensajes de contacto
+@permission_required('tienda.view_contacto')
+def contactoList(request):
+    contactos = Contacto.objects.all()
+    page = request.GET.get('page', 1)
+
+    paginator = Paginator(contactos, 5)
+    try:
+        contactos = paginator.page(page)
+    except:
+        raise Http404
+
+    context = {
+        'contactos': contactos,
+    }
+    return render(request, 'tienda/Libros/contactoList.html', context)
+
+
+
+
 
 """ Modificar """
 @permission_required('tienda.change_libro')

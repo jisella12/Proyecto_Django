@@ -27,11 +27,12 @@
                         <br>
                         <hr>
                         <div class="d-flex justify-content-end">
-                            <input type="reset" value="Cancelar" class="btn btn-secondary">
-                            &nbsp;
-                            <button type="submit" id="Editar" class="btn btn-primary">enviar</button>
+                            <button type="button"><a href="{% url 'agregar' %}">Volver</a></button>
                             &nbsp;
                             <button type="button"><a href="{% url 'libroList' %}">Agregados</a></button>
+                            &nbsp;
+                            <button type="submit" id="Editar" class="btn btn-primary">Enviar</button>
+                            
                         </div>
                     </form>
                     {{mensaje}}

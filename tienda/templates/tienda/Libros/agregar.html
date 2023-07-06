@@ -33,13 +33,14 @@
                         <br>
                         <hr>
                         <div class="d-flex justify-content-end">
-                            <input type="reset" value="Cancelar" class="btn btn-secondary">
+                            <button type="button"><a href="{% url 'Inicio' %}">Inicio</a></button>
                             &nbsp;
-                            <button type="submit" id="Editar" class="btn btn-primary">Enviar</button>
+                            <button type="button"><a href="{% url 'agregarAutor' %}">Agregar Autor</a></button>
                             &nbsp;
                             <button type="button"><a href="{% url 'libroList' %}">Agregados</a></button>
                             &nbsp;
-                            <button type="button"><a href="{% url 'agregarAutor' %}">Agregar Autor</a></button>
+                            <button type="submit" id="Editar" class="btn btn-primary">Enviar</button>
+                            
                         </div>
                     </form>
                     {{mensaje}}

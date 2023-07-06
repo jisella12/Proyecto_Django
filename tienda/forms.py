@@ -1,5 +1,5 @@
 from django import forms
-from .models import Contacto, Libro
+from .models import Autor, Contacto, Libro
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from .validators import MaxSizeFileValidator
@@ -7,8 +7,11 @@ from django.forms import ValidationError
 from django.core.validators import RegexValidator
 
 
+from django import forms
+from tienda.models import Contacto
+
 class ContactoForm(forms.ModelForm):
-    #validaciones
+    # Validaciones
     nombre = forms.CharField(min_length=5, max_length=20)
     email = forms.EmailField()
     mensaje = forms.CharField(widget=forms.Textarea)
@@ -18,21 +21,20 @@ class ContactoForm(forms.ModelForm):
         if len(nombre) < 2:
             raise forms.ValidationError("El nombre debe tener al menos 2 caracteres.")
         return nombre
-    
+
     def clean_mensaje(self):
         mensaje = self.cleaned_data['mensaje']
         if len(mensaje) < 10:
             raise forms.ValidationError("El mensaje debe tener al menos 10 caracteres.")
         return mensaje
-    
-    
-    
+
     class Meta:
         model = Contacto
-        fields = ["nombre", "correo", "mensaje"]
+        fields = ["nombre", "email", "mensaje"]
+
 
         """ incluye todo lo del modelo """
-        fields = '__all__'
+ 
 
 
 
@@ -86,13 +88,14 @@ def clean_email(self):
 ##form autor 
 class AutorForm(forms.ModelForm):
     #validaciones
+    idAutor = forms.IntegerField(min_value=2, max_value=400000)
     nombre = forms.CharField(min_length=3, max_length=30)
-    codigo = forms.IntegerField(min_value=2, max_value=400000)
+    
     
   
     def clean_nombre(self):
         nombre = self.cleaned_data["nombre"]
-        existe = Libro.objects.filter(nombre__iexact=nombre).exists()
+        existe = Autor.objects.filter(nombre__iexact=nombre).exists()
     
         if existe:
           raise ValidationError("Este nombre ya existe")
@@ -100,5 +103,5 @@ class AutorForm(forms.ModelForm):
     
     
     class Meta:
-        model = Libro
-        fields = ["codigo", "nombre"]
+        model = Autor
+        fields = ["idAutor", "nombre"]
